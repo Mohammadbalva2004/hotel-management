@@ -21,6 +21,11 @@ class _CreateAccountState extends State<CreateAccount> {
   final TextEditingController _confirmPasswordController =
       TextEditingController();
 
+  var email = '';
+  var password = '';
+
+  void registration() async {}
+
   void _handleSignUp() {
     String name = _nameController.text.trim();
     String email = _emailController.text.trim();
@@ -66,6 +71,13 @@ class _CreateAccountState extends State<CreateAccount> {
       _showSnackBar("Please Accept Terms & Conditions");
       return;
     }
+
+    setState(() {
+      email = _emailController.text.trim();
+      password = _passwordController.text.trim();
+    });
+
+    registration();
 
     Navigator.push(context, MaterialPageRoute(builder: (context) => Login()));
   }

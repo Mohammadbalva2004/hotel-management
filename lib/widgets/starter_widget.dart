@@ -184,7 +184,7 @@
 //   }
 // }
 
-// starter_widget.dart
+//starter_widget.dart
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:untitled/order_list/menu_list.dart';
@@ -237,7 +237,7 @@ class _StarterWidgetState extends State<StarterWidget> {
       child: Card(
         elevation: 3,
         margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-        // color: isSelected ? Colors.pink.shade50 : null,
+        color: isSelected ? Colors.pink.shade50 : null,
         child: Padding(
           padding: const EdgeInsets.all(10),
           child: Row(
