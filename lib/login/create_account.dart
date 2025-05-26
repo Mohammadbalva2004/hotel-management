@@ -1,3 +1,5 @@
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:untitled/login/login.dart';
@@ -24,7 +26,40 @@ class _CreateAccountState extends State<CreateAccount> {
   var email = '';
   var password = '';
 
-  void registration() async {}
+  void registration() async {
+
+try {
+  await FirebaseAuth.instance.createUserWithEmailAndPassword(
+      email: email, password: password);
+
+  ScaffoldMessenger.of(context).showSnackBar(
+    SnackBar(content: Text(" Successfully .Please Login..."),
+        backgroundColor: Colors.green),
+  );
+
+  Navigator.push(context, MaterialPageRoute(builder: (context) => Login()));
+}
+on FirebaseAuthException catch (e) {
+  if (e.code == 'weak-password') {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(content: Text(" Password Must be at least 6 characters long..."),
+          backgroundColor: Colors.red),
+    );
+  } else if(e.code == 'email-already-in-use') {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(content: Text(" Already user defind..."),
+          backgroundColor: Colors.red),
+    );
+  }
+  else {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(content: Text("registration Faild:${e.message}"),
+          backgroundColor: Colors.red),
+    );
+  }
+
+  }
+}
 
   void _handleSignUp() {
     String name = _nameController.text.trim();
@@ -78,8 +113,6 @@ class _CreateAccountState extends State<CreateAccount> {
     });
 
     registration();
-
-    Navigator.push(context, MaterialPageRoute(builder: (context) => Login()));
   }
 
   void _showSnackBar(String message) {
