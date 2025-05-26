@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "976836390689",
+    "project_id": "aabi-s",
+    "storage_bucket": "aabi-s.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:976836390689:android:5849e0ff6f6511491d9860",
+        "android_client_info": {
+          "package_name": "com.example.untitled"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDtV5o3fSE3HjJmRAFnRTXcFdlLni32YKo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
